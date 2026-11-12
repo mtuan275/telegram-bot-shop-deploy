@@ -24,8 +24,11 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
+      - name: Install root dependencies
         run: npm ci
+
+      - name: Install CMS dependencies
+        run: npm ci --prefix cms
 
       - name: Build CMS and Mini App
         run: npm run build:all
